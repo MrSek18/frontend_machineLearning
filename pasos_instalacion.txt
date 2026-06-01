@@ -1,0 +1,76 @@
+1. Instala Docker Desktop (AMD64) desde la pagina oficial:
+https://www.docker.com/products/docker-desktop/
+
+- Tienes que reiniciar el dispositivo cuando acabe la instalación
+- Luego logeate con una cuenta de gmail
+
+2. Mientras se instala Docker, ve clonando los siguientes repositorios en carpetas distintas:
+backend_fastapi_machineLearning
+frontend_machineLearning
+
+link del github:
+https://github.com/MrSek18
+
+3. Una vez clonados, dirigete a la carpeta de backend_fast y ejecuta el siguiente comando:
+docker compose up --build -d
+
+- deja que cargue hasta que te permita cargar nuevos comandos.
+- Una vez terminada la ejecución, ve a docker, abre el contenedor padre, ve al adminer y abre la url, luego rellena los campos con 
+servidor: db
+usuario: root 
+contraseña: admin
+
+- Luego abre la base de datos municipalidad_yau, dale click al botón de importar (en la parte superior izquierda) y en el botón "elegir archivos" carga el archivo sql "municipalidad_yau_tablas.sql", por ultimo dale click al botón de "ejecutar" (verificar que realmente se haya cargado la base de datos)
+
+4. En la carpeta de frontend_machineLearning, ejecuta:
+npm install
+- una vez terminada la carga, ejecuta:
+npm run dev
+
+
+
+--- MODELO
+--- Pasos para ejecutar el modelo:
+Paso 0: Descargar el instalador correcto
+Entrar al sitio web oficial de Python: python.org
+
+Pasar el cursor por encima del menú "Downloads" y hacer clic en "Windows" (no le des al botón amarillo grande que sale ahí, porque ese te baja la versión 3.12 o 3.13 más reciente).
+
+En la lista que aparece, buscar la sección que dice "Python 3.11.9 - April 2, 2024".
+
+Justo debajo de ese título, debe hacer clic en el enlace que dice:
+
+"Download Windows installer (64-bit)"
+
+(Eso le descargará exactamente el archivo python-3.11.9-amd64.exe que tú tienes).
+
+Paso 1: Instalar Python 3.11.9
+Darle doble clic al archivo descargado.
+
+LO MÁS IMPORTANTE: En la primera ventanita que se abre, abajo del todo, debe marcar la casilla "Add python.exe to PATH".
+
+Hacer clic arriba en "Install Now" y esperar a que se complete.
+
+Paso 2: Crear el Entorno Virtual (en VS Code)
+Tu amigo debe abrir la carpeta del proyecto en VS Code, abrir una terminal y escribir:
+python -m venv venv_tf
+
+Paso 3: Activar el Entorno
+En esa misma terminal ejecutan:
+
+Si usa PowerShell (la de defecto de VS Code): .\venv_tf\Scripts\Activate.ps1
+
+Si usa CMD (Símbolo del sistema): venv_tf\Scripts\activate.bat
+
+(Sabrá que funcionó porque aparecerá un (venv_tf) al inicio de la línea de comandos).
+
+Paso 4: Instalar las Librerías de Inteligencia Artificial
+Con el entorno activo, que copie y pegue este comando para instalar todo lo que pide tu script:
+pip install tensorflow numpy pandas scikit-learn matplotlib seaborn h5py
+
+Paso 5: ¡Ejecutar!
+Asegurándose de que el archivo dataset_tramites_yauyos.csv esté en esa misma carpeta, ya puede lanzar el entrenamiento corriendo:
+python modelo.py
+
+también puedes ejecutar:
+python random_dataset-py
